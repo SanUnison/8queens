@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Queens</title>
+    
+    <style>
+        table{
+            border:1px solid;
+            border-collapse: collapse;
+            
+        }
+        tr{
+            border:1px solid;
+            border-collapse: collapse;
+            
+        }
+        td{
+            border:1px solid;
+            border-collapse: collapse;
+            width:50px;
+            height: 50px;
+        }
+        tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd){
+            background-color: black;
+            
+        }
+        tr:nth-child(odd) td:nth-child(even), tr:nth-child(odd) td:nth-child(even){
+            background-color: white;
+            
+        }
+        div  {
+            font-size: xx-large;
+        }
+           
+
+    </style>
+    <script>
+        var contador=0;
+        function celdaclick(ana){
+            //Validación: Celda tiene imagen?
+            if((window.getComputedStyle(ana).backgroundImage)=="none" ) {
+                if(contador != 8){
+                    contador++; 
+                    ana.style="background-image:url(./queen.png); background-size: cover;";
+                } 
+                
+            }
+            else {
+                contador--;
+                ana.style="background-image:none;";
+            }
+            document.getElementById("div_contador").innerHTML="queens placed:"+ contador;
+        }
+
+        function simulacion(){
+            alert("hola :D");
+        }
+
+        function reiniciar(cont){
+            var celdas=document.getElementById("tabla_ajedrez").getElementsByTagName("td");
+            for (let i = 0; i < celdas.length; i++) {
+                celdas[i].style="backgroundImage:none";    
+            }
+            contador = cont;
+            document.getElementById("div_contador").innerHTML="queens placed:"+ contador;
+        }
+    </script>
+</head>
+<body>
+    
+    <table id="tabla_ajedrez">
+        <tr>
+            <td onclick="celdaclick(this)"> </td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+
+        <tr>
+            
+            <td ></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+            <td onclick="celdaclick(this)"></td>
+        </tr>
+    </table>
+    <div id="div_contador">
+        queens placed: 0
+    </div>
+    <button onclick="simulacion()">
+        Simulación
+    </button>
+    <button onclick="reiniciar(0)">
+        Reiniciar
+    </button>
+
+</body>
+</html>
